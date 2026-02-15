@@ -3,7 +3,7 @@ import requests
 import feedparser
 import json
 
-RSS_URL = "https://news.google.com/rss/search?q=고양시+조기폐차&hl=ko&gl=KR&ceid=KR:ko"
+RSS_URL = "https://news.google.com/rss/search?q=영종도+남북동&hl=ko&gl=KR&ceid=KR:ko"
 STATE_FILE = "last_goyang_scrap.json"
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -42,7 +42,7 @@ def send_telegram_test():
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     data = {
         "chat_id": chat_id,
-        "text": "🔥 강제 테스트 메시지 - 고양시 전송 확인"
+        "text": "🔥 강제 테스트 메시지 - 영종도 전송 확인"
     }
 
     requests.post(url, data=data)
