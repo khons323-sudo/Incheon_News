@@ -2,7 +2,7 @@ name: 영종도 남북동 새소식
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # 15분마다 실행
+    - cron: "0 08 * * *"  # 매일 8시마다 실행
   workflow_dispatch:
 
 jobs:
