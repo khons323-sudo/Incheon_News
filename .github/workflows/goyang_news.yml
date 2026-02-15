@@ -1,0 +1,20 @@
+name: 고양시 조기폐차 모니터링
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # 15분마다 실행
+  workflow_dispatch:
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - run: pip install requests feedparser
+      - run: python monitor.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
